@@ -16,7 +16,7 @@ Themes
 Demo
 ----
 
-![Demo](https://gfycat.com/frequentampleboar.gif)
+![Demo](demogif/demo.webm)
 
 That slide is made using this markdown:
 
