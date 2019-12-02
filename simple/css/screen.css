@@ -1,8 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans&display=swap');
 
 body {
-  font-family: 'Open Sans', Arial, sans-serif;
-  background: #778;
+  font-family: 'Fira Sans', 'Open Sans', Arial, sans-serif;
+  background: #121212;
   padding: 0;
   margin: 0;
   overflow: hidden;
@@ -57,6 +58,7 @@ div.slide {
   -webkit-transition: margin 0.25s ease-in-out;
   -moz-transition: margin 0.25s ease-in-out;
   -o-transition: margin 0.25s ease-in-out;
+  transition: margin 0.25s ease-in-out;
   border-top-left-radius: 10px;
   -moz-border-radius-topleft: 10px;
   -webkit-border-top-left-radius: 10px;
@@ -69,6 +71,7 @@ div.slide {
   border-bottom-left-radius: 10px;
   -moz-border-radius-bottomleft: 10px;
   -webkit-border-bottom-left-radius: 10px;
+  border-radius: 0;
 }
 
 /* Expose */
@@ -139,7 +142,9 @@ body.expose .slide.current {
   -webkit-transform: scale(.315, .315);
   -webkit-transform-origin: 0 0;
   -o-transform: scale(.315, .315);
+  transform: scale(.315, .315);
   -o-transform-origin: 0 0;
+  transform-origin: 0 0;
 }
 
 /* Presenter Mode */
@@ -153,8 +158,10 @@ body.presenter_view div.slide {
   -webkit-transform: scale(.5, .5);
   -webkit-transform-origin: 0 0;
   -o-transform: scale(.5, .5);
+  transform: scale(.5, .5);
   -o-transform-origin: 0 0;
-    margin-top: -300px;
+  transform-origin: 0 0;
+  margin-top: -300px;
 }
 
 body.presenter_view .slide.far-past {
@@ -203,7 +210,7 @@ body.presenter_view div#current_presenter_notes {
 }
 
 body.presenter_view div#current_presenter_notes section {
-  font-family: 'Open Sans', Arial, sans-serif;
+  font-family:  'Fira Sans', 'Open Sans', Arial, sans-serif;
   color: black;
   text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
   display: block;
@@ -271,50 +278,60 @@ body.three-d div.slides {
   -webkit-transform: translateX(50px) scale(0.8) rotateY(10deg);
   -moz-transform: translateX(50px) scale(0.8) rotateY(10deg);
   -o-transform: translateX(50px) scale(0.8) rotateY(10deg);
+  transform: translateX(50px) scale(0.8) rotateY(10deg);
 }
-
 
 /* Content */
 header:not(:only-child) {
-  font-family: 'Open Sans', Arial, sans-serif;
-  font-weight: normal;
+  font-family: 'Fira Sans', 'Open Sans', Arial, sans-serif;
+  font-weight: 'ExtraBold';
   font-size: 50px;
   letter-spacing: -.05em;
   color: #515151;
   /* text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px; */
   position: absolute;
-  left: 30px;
-  top: 25px;
+  /* left: 30px; */
+  top: 0px;
   margin: 0;
-  padding: 0;
+  padding: 20px 0;
+  background-color: #0C4B33;
+  width: 100%;
+  text-align: center;
+}
+
+.slide header {
+    width: 100%;
+}
+
+.slide header:only-child h1 {
+  background-color: #0C4B33;
 }
 
 header h1, header h2, header h3, header h4, header h5, header h6 {
   display: inline;
   font-size: 100%;
-  font-weight: normal;
+  font-weight: ExtraBold;
   padding: 0;
   margin: 0;
+  color: white;
 }
 
-header h1 {
-	border-bottom: 2px dotted #88e;
-}
 
 header h2:first-child {
   margin-top: 0;
 }
 
 section, .slide header:only-child h1 {
-  font-family: 'Open Sans', Arial, sans-serif;
-  color: #515151;
+  font-family: 'Fira Sans', 'Open Sans', Arial, sans-serif;
+  color: black;
   /* color: #3f3f3f; */
   /* text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px; */
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-top: 100px;
+  /*margin-left: 30px;
+  margin-right: 30px;*/
+  margin-top: 150px;
   display: block;
   overflow: hidden;
+  padding: 0 50px;
 }
 
 img { display: block; margin: auto; }
@@ -337,12 +354,15 @@ section img.align-left {
   margin-left: 0;
 }
 
+.slide section p:only-child img {
+    width: 800px;
+}
+
 a {
-  color: inherit;
+  color: #20AA76;
   display: inline-block;
   text-decoration: none;
   line-height: 110%;
-  border-bottom: 2px solid #3f3f3f;
 }
 
 pre {
@@ -351,13 +371,11 @@ pre {
 }
 
 li {
-  list-style: none;
   padding: 10px 0;
   font-size: 20px;
 }
 
 li:before {
-  content:'\2022';
   display: block;
   position: relative;
   max-width: 0px;
@@ -369,13 +387,11 @@ li:before {
 }
 
 li li {
-  list-style: none;
   padding: 5px 0;
   font-size: 18px;
 }
 
 li li:before {
-  content: '-';
   display: block;
   position: relative;
   max-width: 0px;
@@ -384,6 +400,10 @@ li li:before {
   top: -0px;
   color: #515151;
   font-size: 18px;
+}
+
+ol li {
+    list-style: decimal;
 }
 
 .slide header:only-child h1 {
@@ -396,6 +416,7 @@ li li:before {
   font-size: 50px;
   margin-top:100px;
   margin-bottom:100px;
+  color: white;
 }
 
 .sidebar {
@@ -497,6 +518,19 @@ aside {
     font-size: 90%;
 }
 
+.footnote ol:last-child {
+    position: absolute;
+    bottom: 1%;
+    right: 5%;
+}
+
+.footnote ol:last-child li {
+    font-size: 15px;
+    display: inline-block;
+    color: green;
+    text-decoration: underline;
+}
+
 /* Pygments default theme */
 .hll { background-color: #ffffcc }
 .c { color: #408080; font-style: italic } /* Comment */
@@ -569,4 +603,14 @@ aside {
   height: 100%;
   z-index: 64;
   display: none;
+}
+
+/* Make only one slide appear at a time */
+
+.slide {
+    display: none !important;
+}
+
+.current {
+    display: block !important;
 }

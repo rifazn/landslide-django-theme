@@ -1,16 +1,17 @@
-Landslide themes
+Django inspired theme for Landslide
 ================
 
-Themes for Landslide (https://github.com/adamzap/landslide)
+A themes for Landslide (https://github.com/adamzap/landslide) that is inspired from Django's website color palette.
 
 Themes
 ------
 
   - __simple__: modification of the Landslide default theme
     - no gradient
-    - cleaner font
+    - Fira Sans as font
     - improved bullet style
-    - less round corners
+    - no round corners
+    - django color palette
 
 Notes
 -----
