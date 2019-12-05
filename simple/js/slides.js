@@ -20,6 +20,7 @@ function main() {
     var showingPresenterView = false;
     var presenterViewWin = null;
     var isPresenterView = false;
+    var enableMouseWheelSlideChange = false;
 
     var str2array = function(s) {
         if (typeof s == 'string' || s instanceof String) {
@@ -388,6 +389,17 @@ function main() {
         }
     };
 
+    var addTableCaption = function() {
+        // Adds the <p> right after a table as table caption
+        let supposedCaption = document.querySelector('table + p')
+        if (!supposedCaption.innerText)
+          return
+        let caption = document.createElement('caption')
+        caption.innerText = supposedCaption.innerText
+        document.querySelector('.slide table').appendChild(caption)
+        supposedCaption.remove()
+    }
+
     var handleBodyKeyDown = function(event) {
         switch (event.keyCode) {
             case 13: // Enter
@@ -455,10 +467,20 @@ function main() {
             case 84: // t
                 showToc();
                 break;
+            case 77: // m
+                console.log(enableMouseWheelSlideChange);
+                if (!modifierKeyDown && !overviewActive) {
+                    
+                    enableMouseWheelSlideChange = enableMouseWheelSlideChange ? false : true;
+                }
+                break;
         }
     };
 
     var handleWheel = function(event) {
+        if (enableMouseWheelSlideChange == false)
+            return;
+
         if (tocOpened || helpOpened || overviewActive) {
             return;
         }
@@ -556,6 +578,7 @@ function main() {
         document.addEventListener('keyup', checkModifierKeyUp, false);
         document.addEventListener('keydown', handleBodyKeyDown, false);
         document.addEventListener('keydown', checkModifierKeyDown, false);
+        // Uncomment to change slide with mouse wheel
         document.addEventListener('DOMMouseScroll', handleWheel, false);
 
         window.onmousewheel = document.onmousewheel = handleWheel;
@@ -574,5 +597,7 @@ function main() {
         addSlideClickListeners();
 
         addRemoteWindowControls();
+
+        addTableCaption();
     })();
 }
